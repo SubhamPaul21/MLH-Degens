@@ -2,16 +2,51 @@
   "name": "mlh-degens",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "main": "index.ts",
+  "type": "module",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@openzeppelin/contracts": "^5.0.2",
-    "hardhat": "^2.22.2"
+    "@types/babel__core": "^7.20.5",
+    "@types/node": "^16.18.93",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "hardhat": "^2.22.2",
+    "typescript": "^5.4.3",
+    "webpack": "4.42.0"
+  },
+  "dependencies": {
+    "@alchemy/aa-accounts": "^3.6.1",
+    "@alchemy/aa-alchemy": "^3.7.3",
+    "@alchemy/aa-core": "^3.6.1",
+    "@alchemy/aa-signers": "^3.6.1",
+    "dotenv": "^16.4.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "viem": "^2.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
