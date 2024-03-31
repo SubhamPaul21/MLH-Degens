@@ -1,19 +1,22 @@
 App {
-html, body {
-  text-align: center;
+
+  html,
+  body {
+    text-align: center;
+  }
+
+
+  .App-logo {
+    padding: 0;
+    height: 40vmin;
+
+    pointer-events: none;
+    margin: 0;
+  }
+
+
 }
 
-
-.App-logo {
-  padding: 0;
-  height: 40vmin;
-
-  pointer-events: none;
-  margin: 0;
-}
-
-
-  } 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -39,14 +42,17 @@ html, body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-html, body {
+
+html,
+body {
 
   padding: 0;
-  
+
   margin: 0;
-  
-  } 
+
+}
