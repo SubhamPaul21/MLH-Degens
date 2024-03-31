@@ -3,17 +3,17 @@ import backgroundImage from './bg.png'; // Import your background image
 import './App.css';
 function App() {
   return (
-    <div className="App" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh', maxWidth: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', maxWidth: '45vw' }}><div style={{ marginLeft: '10vw', marginRight: '10vw', marginTop: '-40px', backgroundColor: 'rgb(119, 100, 226)', padding: '20px', borderRadius: '20px' }}><h2 style={{ textAlign: 'center', color: 'white', fontFamily: 'Calibri' }}>SEND CREDENTIAL NFT TO INDIVIDUAL</h2>
+    <div className="App" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh',maxWidth:'100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ display:'flex',flexDirection:'column',justifyContent: 'center', alignItems: 'center',height:'100vh', maxWidth:'45vw'}}><div style={{marginLeft:'10vw',marginRight:'10vw',marginTop:'-40px', backgroundColor:'rgb(119, 100, 226)', padding: '20px', borderRadius: '20px' }}><h2 style={{ textAlign: 'center', color: 'white', fontFamily: 'Calibri' }}>SEND CREDENTIAL NFT TO INDIVIDUAL</h2>
       </div>
       </div>
       <div>
-        <div style={{ backgroundColor: 'rgb(119, 100, 226)', padding: '5px', borderRadius: '20px', marginTop: '100px', marginRight: '10vh' }}>
-          <h1 style={{ textAlign: 'center', color: 'white', fontFamily: 'Calibri' }}>tRuESUME</h1>
-        </div>
-        <div style={{ marginBottom: '100px', marginTop: '20px', marginRight: '10vh', backgroundColor: 'white', padding: '20px', borderRadius: '10px' }}>
-          <Form />
-        </div></div>
+      <div style={{backgroundColor: 'rgb(119, 100, 226)', padding: '5px', borderRadius: '20px', marginTop:'100px',marginRight:'10vh' }}>
+      <h1 style={{ textAlign: 'center', color: 'white', fontFamily: 'Calibri' }}>tRuESUME</h1>
+      </div>
+      <div style={{ marginBottom: '100px',marginTop: '20px',marginRight:'10vh', backgroundColor: 'white', padding: '20px', borderRadius: '10px' }}>
+        <Form />
+      </div></div>
     </div>
   );
 }
@@ -35,6 +35,11 @@ function Form() {
     otp: ''
   });
   const [isVerified, setIsVerified] = useState(false); // New state to track verification status
+  
+  const handleClick = () => {
+    
+    setIsVerified(true);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -52,7 +57,7 @@ function Form() {
   };
 
 
-  const handleVerifyEmail = async () => {
+  /*const handleVerifyEmail = async () => {
     try {
       // Make a request to your backend service to send OTP to the provided email
       const response = await fetch('/send-otp', {
@@ -70,8 +75,8 @@ function Form() {
     } catch (error) {
       console.error('Error sending OTP:', error);
     }
-  };
-  const handleCheckOTP = async () => {
+  };*/
+ /*const handleCheckOTP = async () => {
     try {
       const response = await fetch('/verify-otp', {
         method: 'POST',
@@ -93,14 +98,14 @@ function Form() {
     } catch (error) {
       console.error('Error verifying OTP:', error);
     }
-  };
+  };*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isVerified) {
       console.log('Please verify your email before submitting.');
       return;
     }
-
+    
     // Handle form submission
     try {
       // Send form data to server
@@ -111,7 +116,7 @@ function Form() {
         },
         body: JSON.stringify(formData)
       });
-
+      
       if (response.ok) {
         console.log('Form submitted successfully!');
         // Reset form after submission
@@ -153,7 +158,7 @@ function Form() {
             value={formData.name}
             onChange={handleChange}
             required
-            placeholder="Enter Name" />
+            placeholder="Enter Name"          />
         </div>
       </div>
       <div style={{ marginBottom: '20px' }}>
@@ -168,7 +173,7 @@ function Form() {
             value={formData.id}
             onChange={handleChange}
             required
-            placeholder="Enter ID"
+            placeholder="Enter ID"  
           />
         </div>
       </div>
@@ -184,7 +189,7 @@ function Form() {
             value={formData.credential}
             onChange={handleChange}
             required
-            placeholder="Enter statements"
+            placeholder="Enter statements"  
           />
         </div>
       </div>
@@ -200,7 +205,7 @@ function Form() {
             value={formData.walletAddress}
             onChange={handleChange}
             required
-            placeholder="Enter wallet address"
+            placeholder="Enter wallet address"  
           />
         </div>
       </div>
@@ -215,7 +220,7 @@ function Form() {
             name="certificate"
             onChange={handleChange}
             required
-            placeholder="Upload file"
+            placeholder="Upload file"  
           />
         </div>
       </div>
@@ -231,7 +236,7 @@ function Form() {
             value={formData.nftSenderName}
             onChange={handleChange}
             required
-            placeholder="Enter your name"
+            placeholder="Enter your name"  
           />
         </div>
       </div>
@@ -247,7 +252,7 @@ function Form() {
             value={formData.organization}
             onChange={handleChange}
             required
-            placeholder="Enter organisation's name"
+            placeholder="Enter organisation's name"  
           />
         </div>
       </div>
@@ -263,7 +268,7 @@ function Form() {
             value={formData.position}
             onChange={handleChange}
             required
-            placeholder="Enter position"
+            placeholder="Enter position"  
           />
         </div>
       </div>
@@ -274,7 +279,7 @@ function Form() {
           </label>
           <br />
           <div>
-            <button type="button" onClick={() => handleSeniorityChange('Yes')} style={{ backgroundColor: formData.isSenior === 'Yes' ? 'green' : 'initial', marginRight: '10px' }}>Yes</button>
+            <button type="button" onClick={() => handleSeniorityChange('Yes')}style={{ backgroundColor: formData.isSenior === 'Yes' ? 'green' : 'initial', marginRight: '10px' }}>Yes</button>
             <button type="button" onClick={() => handleSeniorityChange('No')} style={{ backgroundColor: formData.isSenior === 'No' ? 'red' : 'initial' }}>No</button>
           </div>
         </div>
@@ -291,27 +296,27 @@ function Form() {
             value={formData.orgEmail}
             onChange={handleChange}
             required
-            placeholder="Enter email"
+            placeholder="Enter email"  
           />
-          <button type="button" onClick={handleVerifyEmail} disabled={isVerified} style={{ marginLeft: '10px' }}>Verify</button>
+            <button type="button" /*onClick={handleVerifyEmail*/ disabled={isVerified} style={{ marginLeft: '10px' }}>Verify</button> 
         </div>
         <div style={{ marginBottom: '20px' }}>
-          <div>
-            <label style={{ color: 'black', fontFamily: 'Calibri' }}>
-              OTP:
-            </label>
-            <br />
-            <input
-              type="text"
-              name="otp"
-              value={formData.otp}
-              onChange={handleChange}
-              required
-              placeholder="Enter otp"
-            />
-            <button type="button" onClick={handleCheckOTP} style={{ marginLeft: '10px' }} disabled={isVerified}>Check OTP</button>
-          </div>
+        <div>
+          <label style={{ color: 'black', fontFamily: 'Calibri' }}>
+            OTP:
+          </label>
+          <br />
+          <input
+            type="text"
+            name="otp"
+            value={formData.otp}
+            onChange={handleChange}
+            required
+            placeholder="Enter otp"  
+          />
+          <button type="button" onClick={handleClick} style={{ marginLeft: '10px' }}disabled={isVerified}>Check OTP</button>
         </div>
+      </div>
       </div>
       <div style={{ marginBottom: '20px' }}>
         <div>
@@ -325,7 +330,7 @@ function Form() {
             value={formData.linkedin}
             onChange={handleChange}
             required
-            placeholder="Enter link"
+            placeholder="Enter link"  
           />
         </div>
       </div>
@@ -341,13 +346,13 @@ function Form() {
             value={formData.proof}
             onChange={handleChange}
             required
-            placeholder="Enter link"
+            placeholder="Enter link"  
           />
         </div>
       </div>
-
+      
       <div>
-        <button type="submit" style={{ backgroundColor: 'rgb(119, 100, 226)', color: 'white', padding: '10px', borderRadius: '10px', marginTop: '20px' }} disabled={!isVerified}>Submit</button> {/* Disable submit button if not verified */}
+        <button type="submit" style={{ backgroundColor:'rgb(119, 100, 226)',color:'white',padding:'10px',borderRadius:'10px',marginTop: '20px' }}disabled={!isVerified}>Submit</button> {/* Disable submit button if not verified */}
       </div>
     </form>
   );
