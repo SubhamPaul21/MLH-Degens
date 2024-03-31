@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import userRoutes from './routes/userRoutes';
+import userRoutes from './src/routes/userRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
