@@ -34,11 +34,15 @@ function Form() {
     proof: '',
     otp: ''
   });
-  const [isVerified, setIsVerified] = useState(false); // New state to track verification status
-  
+  const [isVerified, setIsVerified] = useState(false);
   const handleClick = () => {
-    
-    setIsVerified(true);
+    if (formData.otp==='123456') {
+      setIsVerified(true);
+      console.log('OTP verified successfully!');
+    } else {
+      setIsVerified(false);
+      console.error('Invalid OTP');
+    }
   };
 
   const handleChange = (e) => {
