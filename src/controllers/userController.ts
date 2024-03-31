@@ -4,7 +4,7 @@ import { sendEmail } from '../services/emailService';
 import generateOTP from '../utils/generateOTP';
 import OTP from '../models/OTP';
 
-export const sendOTP = async (req: Request, res: Response): Promise<void> => {
+export const sendOTP = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
   try {
     const { email } = req.body;
     if (!email) {
@@ -33,7 +33,7 @@ export const sendOTP = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const verifyOTP = async (req: Request, res: Response): Promise<void> => {
+export const verifyOTP = async (req: Request, res: Response): Promise<Response<any, Record<string, any>>> => {
   try {
     const { otp } = req.body;
 
