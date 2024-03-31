@@ -17,7 +17,7 @@ export const sendOTP = async (req: Request, res: Response): Promise<Response<any
     }
 
     let otp: string;
-    let otpExists: boolean;
+    let otpExists: { _id: any } | null;
     do {
       otp = generateOTP();
       otpExists = await OTP.exists({ otp });
